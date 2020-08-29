@@ -84,14 +84,6 @@ bot.on('message', message => {
       .setTimestamp()
     message.channel.send(embed);
   }
-  if (message.content === `$membercount`) {
-    const embed = new MessageEmbed()
-      .setAuthor(`Total member on ${message.guild.name}`)
-      .setTitle(`Total Member: ${message.guild.memberCount}`)
-      .setFooter('placedog.net')
-      .setColor("BLUE")
-    message.channel.send(embed);
-  }
   if (message.content === `$donate`) {
     const embed = new MessageEmbed()
       .setTitle('How to donate')

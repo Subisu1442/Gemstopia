@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
-const { Client, MessageEmbed } = require('discord.js');
 const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
+const { Client, MessageEmbed } = require('discord.js');
 
-const client = new Discord.Client();
+const bot = new Discord.Client({ disableEveryone: true });
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)

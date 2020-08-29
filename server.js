@@ -6,7 +6,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)
-  bot.user.setActivity("/help", { type: "PLAYING" });
+  bot.user.setActivity("$help", { type: "PLAYING" });
 })
 
 bot.on('guildMemberAdd', member => {
@@ -22,18 +22,18 @@ bot.on('guildMemberRemove', member => {
 });
 
 bot.on('message', message => {
-  if (message.content === '/help') {
+  if (message.content === '$help') {
     const embed = new MessageEmbed()
       .setColor('BLUE')
       .setTitle('GemsTopia Commands')
-      .setDescription('Prefix: "/"')
+      .setDescription('Prefix: "$"')
       .addFields(
-        { name: '/help', value: 'Help command' },
-        { name: '/membercount', value: 'Count member on this server' },
-        { name: '/info', value: 'Your Information' },
-        { name: '/avatar', value: 'Bot will show your avatar. Aliases `/av`' },
-        { name: '/donate', value: 'Donate our server by donating World Locks/ Diamond Locks' },
-        { name: '/more', value: 'More Information' },
+        { name: '$help', value: 'Help command' },
+        { name: '$membercount', value: 'Count member on this server' },
+        { name: '$info', value: 'Your Information' },
+        { name: '$avatar', value: 'Bot will show your avatar. Aliases `$av`' },
+        { name: '$donate', value: 'Donate our server by donating World Locks/Diamond Locks' },
+        { name: '$more', value: 'More Information' },
       )
       .setTimestamp()
       .setFooter(`ID: ${message.id}`)
@@ -42,7 +42,7 @@ bot.on('message', message => {
 });
 
 bot.on('message', message => {
-  if (message.content === '/membercount') {
+  if (message.content === '$membercount') {
     const embed = new MessageEmbed()
       .setTitle(`Total member on this server`)
       .setColor(0xff0000)
@@ -51,7 +51,7 @@ bot.on('message', message => {
       .setDescription(`Member Count: ${message.guild.memberCount}`);
     message.channel.send(embed);
   }
-  if (message.content === `/info`) {
+  if (message.content === `$info`) {
     const embed = new MessageEmbed()
       .setTitle('Your information')
       .addFields(
@@ -64,7 +64,7 @@ bot.on('message', message => {
       .setTimestamp()
     message.channel.send(embed);
   }
-  if (message.content === `/avatar`) {
+  if (message.content === `$avatar`) {
     const embed = new MessageEmbed()
       .setTitle('Your avatar')
       .setAuthor(`${message.author.username}`, message.author.avatarURL())
@@ -74,7 +74,7 @@ bot.on('message', message => {
       .setTimestamp()
     message.channel.send(embed);
   }
-  if (message.content === `/av`) {
+  if (message.content === `$av`) {
     const embed = new MessageEmbed()
       .setTitle('Your avatar')
       .setAuthor(`${message.author.username}`, message.author.avatarURL())
@@ -84,7 +84,7 @@ bot.on('message', message => {
       .setTimestamp()
     message.channel.send(embed);
   }
-  if (message.content === `/membercount`) {
+  if (message.content === `$membercount`) {
     const embed = new MessageEmbed()
       .setAuthor(`Total member on ${message.guild.name}`)
       .setTitle(`Total Member: ${message.guild.memberCount}`)
@@ -92,7 +92,7 @@ bot.on('message', message => {
       .setColor("BLUE")
     message.channel.send(embed);
   }
-  if (message.content === `/donate`) {
+  if (message.content === `$donate`) {
     const embed = new MessageEmbed()
       .setTitle('How to donate')
       .setDescription('You can support this server by donate World Lock, or Diamond Lock. By donating you will get reward <#744043084685508670>, Ready to Donate? Go `CATSBANK` on Growtopia.')
@@ -100,7 +100,7 @@ bot.on('message', message => {
       .setColor("BLUE")
     message.channel.send(embed);
   }
-  if (message.content === `/more`) {
+  if (message.content === `$more`) {
     const embed = new MessageEmbed()
       .setTitle('More Information')
       .addFields(

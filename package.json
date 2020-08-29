@@ -1,0 +1,14 @@
+{
+  "name": "gemstopia",
+  "version": "1.0.1",
+  "description": "GemsTopia Bot",
+  "main": "server.js",
+  "scripts": {
+    "test": "/help"
+  },
+  "author": "Subisu#0017",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}

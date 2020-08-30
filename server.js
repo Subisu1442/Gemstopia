@@ -34,6 +34,7 @@ bot.on('message', message => {
         { name: '$avatar', value: 'Bot will show your avatar. Aliases `$av`' },
         { name: '$donate', value: 'Donate our server by donating World Locks/Diamond Locks' },
         { name: '$more', value: 'More Information' },
+        { name: '$rules', value: 'Rules/Reminder' },
       )
       .setTimestamp()
       .setFooter(`ID: ${message.id}`)
@@ -108,16 +109,16 @@ bot.on('message', message => {
 //RULES COMMAND
 
 bot.on('message', message => {
-  if (message.content === '/rules') {
+  if (message.content === '$rules') {
     const embed = new MessageEmbed()
       .setTitle('Rules command')
-      .setDescription('Deafult Rules [1-7] `Example /rules 1`')
+      .setDescription('Deafult Rules [1-7] `Example $rules 1`')
       .setColor("RED")
       .setTimestamp()
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-  if (message.content === '/rules 1') {
+  if (message.content === '$rules 1') {
     const embed = new MessageEmbed()
       .setTitle('1️⃣  Be friendly to everyone')
       .setDescription('Dont say bad words, or things that can hurt people')
@@ -126,7 +127,7 @@ bot.on('message', message => {
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-  if (message.content === '/rules 2') {
+  if (message.content === '$rules 2') {
     const embed = new MessageEmbed()
       .setTitle(`2️⃣ Don't spam chats in any channels`)
       .setDescription('You can spam on <#744200160032194611>')
@@ -135,7 +136,7 @@ bot.on('message', message => {
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-  if (message.content === '/rules 3') {
+  if (message.content === '$rules 3') {
     const embed = new MessageEmbed()
       .setTitle(`3️⃣ Don't ping our Staff without any reasons`)
       .setDescription('Ping staff only for purposes, and not for trolling')
@@ -144,7 +145,7 @@ bot.on('message', message => {
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-  if (message.content === '/rules 4') {
+  if (message.content === '$rules 4') {
     const embed = new MessageEmbed()
       .setTitle('4️⃣ Do not Advertise your own Content')
       .setDescription('You are not allowed to advertise anything. If you do you will be punished')
@@ -153,7 +154,7 @@ bot.on('message', message => {
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-  if (message.content === '/rules 5') {
+  if (message.content === '$rules 5') {
     const embed = new MessageEmbed()
       .setTitle('5️⃣ Do not Complain Anything About this Server')
       .setDescription('You shouldnt complain about this server. but you are allowed to give suggestions for this server')
@@ -162,7 +163,7 @@ bot.on('message', message => {
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-  if (message.content === '/rules 6') {
+  if (message.content === '$rules 6') {
     const embed = new MessageEmbed()
       .setTitle('6️⃣ Do not talk inappropriate words.')
       .setDescription('You may get muted if you do')
@@ -171,7 +172,7 @@ bot.on('message', message => {
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-  if (message.content === '/rules 7') {
+  if (message.content === '$rules 7') {
     const embed = new MessageEmbed()
       .setTitle('7️⃣ Follow Discord ToS & Guidelines')
       .setDescription(`**https://discord.com/new/terms

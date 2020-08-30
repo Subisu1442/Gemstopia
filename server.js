@@ -38,6 +38,7 @@ bot.on("message", async message => {
         { name: '$help', value: 'Help command' },
         { name: '$membercount', value: 'Count member on this server' },
         { name: '$info', value: 'Your Information' },
+        { name: '$purge', value: 'Delete Bulk Message.' },
         { name: '$avatar', value: 'Bot will show your avatar. Aliases `$av`' },
         { name: '$donate', value: 'Donate our server by donating World Locks/Diamond Locks' },
         { name: '$more', value: 'More Information' },
@@ -69,6 +70,30 @@ bot.on("message", async message => {
       .setTimestamp()
     message.channel.send(embed);
   }
+  if(cmd === `${prefix}purge`){
+        if (message.deletable) {
+            message.delete();
+        }
+
+        if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+            return message.reply("**This command requires you to have the ``MANAGE MESSAGES`` permission to use it").then(m => m.delete(5000));
+        }
+
+        if (isNaN(args[0]) || parseInt(args[0]) <= 0) {
+            return message.reply("This is not a number").then(m => m.delete(5000));
+        }
+
+        let deleteAmount;
+        if (parseInt(args[0]) > 100) {
+            deleteAmount = 100;
+        } else {
+            deleteAmount = parseInt(args[0]);
+        }
+
+        message.channel.bulkDelete(deleteAmount, true)
+        .catch(err => message.reply(`Something went wrong... ${err}`));
+    
+    }
   if (message.content === `$avatar`) {
     const embed = new MessageEmbed()
       .setTitle('Your avatar')

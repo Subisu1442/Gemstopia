@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
 const { Client, MessageEmbed } = require('discord.js');
+const botsettings = require('./botsettings.json');
 
 const bot = new Discord.Client({ disableEveryone: true });
 
@@ -20,8 +21,14 @@ bot.on('guildMemberRemove', member => {
   if (!channel) return;
   channel.send(`Gooodbye ${member} IWasGems will miss you. `);
 });
+bot.on("message", async message => {
+  if(message.author.bot || message.channel.type === "dm") return;
 
-bot.on('message', message => {
+  let prefix = botsettings.prefix;
+  let messageArray = message.content.split(" ")
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
   if (message.content === '$help') {
     const embed = new MessageEmbed()
       .setColor('BLUE')
@@ -40,9 +47,6 @@ bot.on('message', message => {
       .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
-});
-
-bot.on('message', message => {
   if (message.content === '$membercount') {
     const embed = new MessageEmbed()
       .setTitle(`Total member on this server`)
@@ -104,11 +108,7 @@ bot.on('message', message => {
       .setColor("BLUE")
     message.channel.send(embed);
   }
-});
-
 //RULES COMMAND
-
-bot.on('message', message => {
   if (message.content === '$rules') {
     const embed = new MessageEmbed()
       .setTitle('Rules command')

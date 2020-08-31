@@ -21,6 +21,13 @@ bot.on('guildMemberRemove', member => {
   if (!channel) return;
   channel.send(`Gooodbye ${member} IWasGems will miss you. `);
 });
+
+bot.on('message', msg => {
+  if (msg.content === '$invite') {
+    msg.reply('**Official Gemstopia Server Invite https://discord.gg/wRKPHQT**');
+  }
+});
+
 bot.on("message", async message => {
   if(message.author.bot || message.channel.type === "dm") return;
 

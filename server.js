@@ -24,7 +24,7 @@ bot.on('guildMemberRemove', member => {
 
 bot.on('message', msg => {
   if (msg.content === '$invite') {
-    msg.reply('**Official Gemstopia Server Invite https://discord.gg/wRKPHQT**');
+    msg.reply('**Official Gemstopia Server Invite** https://discord.gg/wRKPHQT');
   }
 });
 

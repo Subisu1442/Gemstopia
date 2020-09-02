@@ -98,7 +98,7 @@ bot.on("message", async message => {
         }
 
         message.channel.bulkDelete(deleteAmount, true)
-        .catch(err => message.reply(`Something went wrong... ${err}`));
+        .catch(err => message.reply(`**Error Message: ${err}**`));
     
     }
   if (message.content === `$avatar`) {

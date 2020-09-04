@@ -7,7 +7,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)
-  bot.user.setActivity("$help", { type: "PLAYING" });
+  bot.user.setActivity(`${prefix}help`, { type: "PLAYING" });
 })
 
 bot.on('guildMemberAdd', member => {
@@ -24,7 +24,7 @@ bot.on('guildMemberRemove', member => {
 
 bot.on('message', msg => {
   if (msg.content === '$invite') {
-    msg.reply('**Official Gemstopia Server Invite** https://discord.gg/wRKPHQT');
+    msg.reply('**Official Among Dungeon Server Invite** https://discord.gg/wRKPHQT');
   }
 });
 
@@ -39,7 +39,7 @@ bot.on("message", async message => {
   if (message.content === '$help') {
     const embed = new MessageEmbed()
       .setColor('BLUE')
-      .setTitle('GemsTopia Commands')
+      .setTitle('Among Commands')
       .setDescription('Prefix: "$"')
       .addFields(
         { name: '$help', value: 'Help command' },

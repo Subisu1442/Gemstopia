@@ -147,7 +147,7 @@ bot.on("message", async message => {
     var text = message.content.split(" ").slice(1).join(' ')
     if (!text) return message.channel.send('Enter your text')
     message.channel.send(text)
-    message.deletable()
+    message.delete()
   }
 //RULES COMMAND
   if (message.content === '$rules') {

@@ -41,7 +41,7 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
   
   if (message.content === '!join') {
-		client.emit('guildMemberAdd', message.member);
+		bot.emit('guildMemberAdd', message.member);
 	}
   if (message.content === '$help') {
     const embed = new MessageEmbed()

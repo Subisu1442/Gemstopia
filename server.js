@@ -22,7 +22,7 @@ bot.on('guildMemberAdd', member => {
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
-  channel.send(`Gooodbye ${user.tag}, We will miss you. `);
+  channel.send(`Gooodbye ${member.id}, We will miss you. `);
 });
 
 bot.on('message', msg => {

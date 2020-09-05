@@ -21,7 +21,8 @@ bot.on('guildMemberAdd', member => {
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
 
-  member.send({embed: { color: "RED", description: `You leave ${member.guild.name}` }})
+  member.send({embed: { color: "RED", description: `You leave ${member.guild.name}
+  Join Invite link: https://discord.gg/wRKPHQT` }})
 });  
 bot.on('message', msg => {
   if (msg.content === '$invite') {

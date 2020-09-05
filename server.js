@@ -142,6 +142,13 @@ bot.on("message", async message => {
       .setColor("BLUE")
     message.channel.send(embed);
   }
+  if (message.content.startsWith(`${prefix}say`)) {
+    if (!message.member.hasPermission(["MANAGE_MESSAGES"])) return message.channel.send('**You dont have `MANAGE_MESSAGES` permission!**')
+    var text = message.content.split(" ").slice(1).join(' ')
+    if (!text) return message.channel.send('Enter your text')
+    message.channel.send(text)
+    message.deletable()
+  }
 //RULES COMMAND
   if (message.content === '$rules') {
     const embed = new MessageEmbed()

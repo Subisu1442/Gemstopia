@@ -14,17 +14,15 @@ bot.on("ready", async () => {
 bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
-  channel.send(`${member} has joined the server!
-  Welcome to **Among US Dungeon**, 
-  Make sure to check out <#727338502324486234> and follow the rules!`);
+  channel.send(`**${member} Welcome to ${member.guild.name}. 
+  Make sure to check out <#727338502324486234> and follow the rules**`);
 });
 
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
-  if (!channel) return;
-  channel.send(`Gooodbye ${member.id}, We will miss you. `);
-});
 
+  member.send({embed: { color: "RED", description: `You leave ${member.guild.name}` }})
+});  
 bot.on('message', msg => {
   if (msg.content === '$invite') {
     msg.reply('**Official Among Dungeon Server Invite** https://discord.gg/wRKPHQT');

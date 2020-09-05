@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
 const { Client, MessageEmbed } = require('discord.js');
 const botsettings = require('./botsettings.json');
+const prefix = "$"
 
 const bot = new Discord.Client({ disableEveryone: true });
 
@@ -14,14 +15,14 @@ bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
   channel.send(`${member} has joined the server!
-  Welcome to ${message.guild.name}, 
+  Welcome to **Among US Dungeon**, 
   Make sure to check out <#727338502324486234> and follow the rules!`);
 });
 
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
-  channel.send(`Gooodbye ${member.username}, We will miss you. `);
+  channel.send(`Gooodbye ${user.tag}, We will miss you. `);
 });
 
 bot.on('message', msg => {

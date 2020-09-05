@@ -13,7 +13,11 @@ bot.on("ready", async () => {
 bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
-  channel.send(`Welcome ${member}, Check <#727338502324486234>, and <#727335836462481468> .Enjoy!`);
+  channel.send(`${member} has joined the server!
+
+Welcome to ${message.guild.name}, Make sure to check out <#727338502324486234> and follow the rules! !
+
+Now we have : ${message.guild.memberCount} members`);
 });
 
 bot.on('guildMemberRemove', member => {
@@ -35,7 +39,10 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ")
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-
+  
+  if (message.content === '!join') {
+		client.emit('guildMemberAdd', message.member);
+	}
   if (message.content === '$help') {
     const embed = new MessageEmbed()
       .setColor('BLUE')

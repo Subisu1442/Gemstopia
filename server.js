@@ -14,16 +14,14 @@ bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
   channel.send(`${member} has joined the server!
-
-Welcome to ${message.guild.name}, Make sure to check out <#727338502324486234> and follow the rules! !
-
-Now we have : ${message.guild.memberCount} members`);
+  Welcome to ${message.guild.name}, 
+  Make sure to check out <#727338502324486234> and follow the rules!`);
 });
 
 bot.on('guildMemberRemove', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
-  channel.send(`Gooodbye ${member} IWasGems will miss you. `);
+  channel.send(`Gooodbye ${member.username}, We will miss you. `);
 });
 
 bot.on('message', msg => {

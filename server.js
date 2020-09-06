@@ -253,9 +253,10 @@ bot.on('message', async message => {
     const embed = new  MessageEmbed()
     .setTitle('Roles Games')
     .addField(
-      { name: 'Dank Memer', value: '🐸' },
-      { name: 'Growtopia', value: '👨‍🌾' },
+      { name: '🐸: Dank Memer' },
+      { name: '👨‍🌾: Growtopia'},
     )
+    .setColor("RED")
     let msg = await message.channel.send(embed);
     await msg.react('🐸').then(msg.react('👨‍🌾'))
   }

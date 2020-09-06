@@ -142,6 +142,18 @@ bot.on("message", async message => {
       .setTimestamp()
     message.channel.send(embed);
   }
+  if (cmd === `${prefix}poll`) {
+    let pollChannel = message.mentions.channels.first();
+    let pollDescription = args.slice(1);
+
+    let embedPoll = new Discord.MessageEmbed()
+  .setTitle('NEW QOTD')
+    .setDescription(pollDescription)
+    .setColor("GREEN")
+    let msgEmbed = await pollChannel.send(embedPoll);
+    await msgEmbed.react('✅')
+    await msgEmbed.react('❌')
+  }
   if (message.content === `$donate`) {
     const embed = new MessageEmbed()
       .setTitle('How to donate')
@@ -300,7 +312,7 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
   if (reaction.message.channel.id === '727331986712297523') {
     if (reaction.emoji.name === '🐸') await reaction.message.guild.members.cache.get(user.id).roles.remove('727340886421405817')
     if (reaction.emoji.name === '👨‍🌾') await reaction.message.guild.members.cache.get(user.id).roles.remove('741945946442694706')
-    if (reaction.emoji.id === '727331986712297523') await reaction.message.guild.members.cache.get(user.id).roles.add('741945946442694706')
+    if (reaction.emoji.id === '727331986712297523') await reaction.message.guild.members.cache.get(user.id).roles.remove('741945946442694706')
   }
 });
 bot.login(process.env.token);

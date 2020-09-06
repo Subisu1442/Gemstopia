@@ -50,6 +50,7 @@ bot.on("message", async message => {
         { name: '$ping', value: 'Ping Command' },
         { name: '$purge', value: 'Delete Bulk Message.' },
         { name: '$avatar', value: 'Bot will show your avatar. Aliases `$av`' },
+        { name: '$howgay', value: 'How gay Command' },
         { name: '$donate', value: 'Donate our server by donating World Locks/Diamond Locks' },
         { name: '$more', value: 'More Information' },
         { name: '$rules', value: 'Rules/Reminder' },
@@ -126,6 +127,10 @@ bot.on("message", async message => {
       .setFooter(message.author.username)
       .setTimestamp()
     message.channel.send(embed);
+  }
+  if (message.content === `$howgay`) {
+    var random = Math.floor(Math.random() * 10) + 1;
+    message.channel.send(`${Math.floor(Math.random() * 10) + 1}`)
   }
   if (message.content === `$av`) {
     const embed = new MessageEmbed()

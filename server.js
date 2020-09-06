@@ -14,7 +14,7 @@ bot.on("ready", async () => {
 bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
   if (!channel) return;
-  channel.send(`**${member} Welcome to ${member.guild.name}. 
+  channel.send(`<:AmongWelcome:751835725443497994>**${member} Welcome to ${member.guild.name}. 
   Make sure to check out <#727338502324486234> and follow the rules**`);
 });
 
@@ -135,10 +135,31 @@ bot.on("message", async message => {
     const embed = new MessageEmbed()
       .setTitle('More Information')
       .addFields(
+        { name: '$coc', value: 'Clash of Clans Guild, Event, and Website' },
+        { name: '$amongus', value: 'Amongus Event' },
+      )
+      .setFooter(`Clash of Clans`)
+      .setColor("BLUE")
+    message.channel.send(embed);
+  }
+  if (message.content === `$coc`) {
+    const embed = new MessageEmbed()
+      .setTitle('More Information')
+      .addFields(
         { name: 'We have Clash of Clans', value: `Direct message <@653159264529154068> if you want join our Clans` },
+        { name: 'Requirement', value: 'Can using INDONESIAN Language' },
         { name: 'Clash of Clans Website', value: 'Visit our Clash of Clans Website on https://kopi.glitch.me' },
       )
-      .setFooter(`ID: ${message.id}`)
+      .setFooter(`Clash of Clans`)
+      .setColor("BLUE")
+    message.channel.send(embed);
+  }
+  if (message.content === `$amongus`) {
+    const embed = new MessageEmbed()
+      .setTitle('More Information')
+      .addFields(
+        { name: 'Among Us Event:', value: `Not Available` },
+      )
       .setColor("BLUE")
     message.channel.send(embed);
   }
@@ -149,6 +170,7 @@ bot.on("message", async message => {
     message.channel.send(text)
     message.delete()
   }
+
 //RULES COMMAND
   if (message.content === '$rules') {
     const embed = new MessageEmbed()
@@ -225,4 +247,31 @@ bot.on("message", async message => {
   }
 });
 
+
+bot.on('message', async message => {
+  if (message.content.startsWith(`${prefix}reactionroles23l`)) {
+    let msg = await message.channel.send(`React for roles!`)
+    await msg.react('🐸').then(msg.react('👨‍🌾'))
+  }
+});
+
+bot.on('messageReactionAdd', async (reaction, user ) => {
+  if (reaction.message.partial) await reaction.message.fetch()
+  if (reaction.partial) await reaction.fetch()
+  if (user.bot)return
+  if (reaction.message.channel.id === '727331986712297523') {
+    if (reaction.emoji.name === '🐸') await reaction.message.guild.members.cache.get(user.id).roles.add('727340886421405817')
+    if (reaction.emoji.name === '👨‍🌾') await reaction.message.guild.members.cache.get(user.id).roles.add('741945946442694706')
+  }
+});
+
+bot.on('messageReactionRemove', async (reaction, user ) => {
+  if (reaction.message.partial) await reaction.message.fetch()
+  if (reaction.partial) await reaction.fetch()
+  if (user.bot)return
+  if (reaction.message.channel.id === '727331986712297523') {
+    if (reaction.emoji.name === '🐸') await reaction.message.guild.members.cache.get(user.id).roles.add('727340886421405817')
+    if (reaction.emoji.name === '👨‍🌾') await reaction.message.guild.members.cache.get(user.id).roles.add('741945946442694706')
+  }
+});
 bot.login(process.env.token);

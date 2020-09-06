@@ -252,7 +252,7 @@ bot.on('message', async message => {
   if (message.content.startsWith(`${prefix}reactionroles23l`)) {
     const embed = new  MessageEmbed()
     .setTitle('Roles Games')
-    .addField(
+    .addFields(
       { name: '🐸: Dank Memer' },
       { name: '👨‍🌾: Growtopia'},
     )

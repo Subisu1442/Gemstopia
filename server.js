@@ -130,11 +130,8 @@ bot.on("message", async message => {
   }
   if (message.content === `$howgay`) {
     var random = Math.floor(Math.random() * 100) + 1;
-    const user = message.mentions.users.first();
-    if (member) {
-      message.reply("Mention User First");
-    }
-    message.channel.send(`${Math.floor(Math.random() * 100) + 2}% Gays🌈`)
+    if (!mention) return message.channel.send('You need to mention a user.');
+    message.channel.send(`${member}${Math.floor(Math.random() * 100) + 2}% Gays🌈`)
   }
   if (message.content === `$av`) {
     const embed = new MessageEmbed()

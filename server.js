@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
 const { Client, MessageEmbed } = require('discord.js');
-const botsettings = require('./botsettings.json');
+const randomPuppy = require('random-puppy');
+
 const prefix = "$"
 
 const bot = new Discord.Client({ disableEveryone: true });
@@ -47,6 +48,7 @@ bot.on("message", async message => {
         { name: '$help', value: 'Help command' },
         { name: '$membercount', value: 'Count member on this server' },
         { name: '$info', value: 'Your Information' },
+        { name: '$meme', value: 'Post meme from reddit' },
         { name: '$ping', value: 'Ping Command' },
         { name: '$purge', value: 'Delete Bulk Message.' },
         { name: '$avatar', value: 'Bot will show your avatar. Aliases `$av`' },
@@ -80,6 +82,18 @@ bot.on("message", async message => {
       .setFooter(`Message ID: ${message.id}`)
       .setTimestamp()
     message.channel.send(embed);
+  }
+  if (message.content === `${prefix}meme`) {
+    const subReddit = ["dankmeme", "meme", "memes"]
+    const random = subReddit[Math.floor(Math.random() * subReddit.length)];
+
+    const img = await randomPuppy(random);
+    const embed = new Discord.MessageEmbed()
+    .setTitle(`From /r/${random}`)
+    .setImage(img)
+    .setColor("RANDOM")
+    .setFooter('Powered by Reddit')
+    .setURL(`https://reddit.com/r/${random}`);
   }
   if (message.content.startsWith(`${prefix}ping`)) {
     (await message.channel.send(`Pinging...`)).then((msg) => {
@@ -134,6 +148,8 @@ bot.on("message", async message => {
   }
   if (message.content === `$av`) {
     const embed = new MessageEmbed()
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+      return message.reply("**This command requires you to have the ``MANAGE MESSAGES`` permission to use it**")
       .setTitle('Your avatar')
       .setAuthor(`${message.author.username}`, message.author.avatarURL())
       .setImage(message.author.avatarURL())
@@ -141,10 +157,11 @@ bot.on("message", async message => {
       .setFooter(message.author.username)
       .setTimestamp()
     message.channel.send(embed);
+    }
   }
   if (cmd === `${prefix}poll`) {
     let pollChannel = message.mentions.channels.first();
-    let pollDescription = args.slice(1);
+    let pollDescription = args.slice(1).join (' ');
 
     let embedPoll = new Discord.MessageEmbed()
   .setTitle('NEW QOTD')

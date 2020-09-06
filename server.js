@@ -47,6 +47,7 @@ bot.on("message", async message => {
         { name: '$help', value: 'Help command' },
         { name: '$membercount', value: 'Count member on this server' },
         { name: '$info', value: 'Your Information' },
+        { name: '$ping', value: 'Ping Command' },
         { name: '$purge', value: 'Delete Bulk Message.' },
         { name: '$avatar', value: 'Bot will show your avatar. Aliases `$av`' },
         { name: '$donate', value: 'Donate our server by donating World Locks/Diamond Locks' },
@@ -78,6 +79,19 @@ bot.on("message", async message => {
       .setFooter(`Message ID: ${message.id}`)
       .setTimestamp()
     message.channel.send(embed);
+  }
+  if (message.content.startsWith(`${prefix}ping`)) {
+    (await message.channel.send(`Pinging...`)).then((msg) => {
+      const pingembed = new Discord.MessageEmbed()
+      .setDescription(
+        `🏓Pong!\nLatency is **${Math.floor(
+          msg.createdTimeStamp | message.createdTimestamp
+        )}ms \nAPI Latency is **${Math.round(client.ws.ping)}ms**`
+      )
+      .setColor("RED")
+      msg.edit(pingembed);
+      msg.edit("\u2000");
+    })
   }
   if(cmd === `${prefix}purge`){
         if (message.deletable) {
@@ -249,6 +263,7 @@ bot.on("message", async message => {
 
 
 bot.on('message', async message => {
+  if(message.author.bot || message.channel.type === "dm") return;
   if (message.content.startsWith(`${prefix}reactionroles23l`)) {
     const embed = new  MessageEmbed()
     .setTitle('Roles Games')
@@ -263,6 +278,7 @@ bot.on('message', async message => {
 });
 
 bot.on('messageReactionAdd', async (reaction, user ) => {
+  if(message.author.bot || message.channel.type === "dm") return;
   if (reaction.message.partial) await reaction.message.fetch()
   if (reaction.partial) await reaction.fetch()
   if (user.bot)return
@@ -273,6 +289,7 @@ bot.on('messageReactionAdd', async (reaction, user ) => {
 });
 
 bot.on('messageReactionRemove', async (reaction, user ) => {
+  if(message.author.bot || message.channel.type === "dm") return;
   if (reaction.message.partial) await reaction.message.fetch()
   if (reaction.partial) await reaction.fetch()
   if (user.bot)return

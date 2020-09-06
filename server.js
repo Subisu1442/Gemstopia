@@ -250,7 +250,13 @@ bot.on("message", async message => {
 
 bot.on('message', async message => {
   if (message.content.startsWith(`${prefix}reactionroles23l`)) {
-    let msg = await message.channel.send(`React for roles!`)
+    const embed = new  MessageEmbed()
+    .setTitle('Roles Games')
+    .addField(
+      { name: 'Dank Memer', value: '🐸' },
+      { name: 'Growtopia', value: '👨‍🌾' },
+    )
+    let msg = await message.channel.send(embed);
     await msg.react('🐸').then(msg.react('👨‍🌾'))
   }
 });

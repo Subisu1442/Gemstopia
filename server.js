@@ -95,6 +95,7 @@ bot.on("message", async message => {
     .setColor("RANDOM")
     .setFooter('Powered by Reddit')
     .setURL(`https://reddit.com/r/${random}`);
+    message.channel.send(embed)
   }
   if (message.content.startsWith(`${prefix}ping`)) {
     (await message.channel.send(`Pinging...`)).then((msg) => {

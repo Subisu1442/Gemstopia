@@ -130,7 +130,7 @@ bot.on("message", async message => {
   }
   if (message.content === `$howgay`) {
     var random = Math.floor(Math.random() * 100) + 1;
-    message.channel.send(`${member}${Math.floor(Math.random() * 100) + 2}% Gays🌈`)
+    message.channel.send(`${user}${Math.floor(Math.random() * 100) + 2}% Gays🌈`)
   }
   if (message.content === `$av`) {
     const embed = new MessageEmbed()

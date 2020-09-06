@@ -14,14 +14,14 @@ bot.on("ready", async () => {
 })
 
 bot.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'english-only');
   if (!channel) return;
   channel.send(`<:AmongWelcome:751835725443497994>**${member} Welcome to ${member.guild.name}. 
   Make sure to check out <#727338502324486234> and follow the rules**`);
 });
 
 bot.on('guildMemberRemove', member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english•only');
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'english-only');
 
   member.send({embed: { color: "RED", description: `You leave ${member.guild.name}
   Join Invite link: https://discord.gg/wRKPHQT` }})

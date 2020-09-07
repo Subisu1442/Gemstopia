@@ -175,10 +175,8 @@ bot.on("message", async message => {
     var random = Math.floor(Math.random() * 100) + 1;
     message.channel.send(`${message.author.username} ${Math.floor(Math.random() * 100) + 2}% Gays🌈`)
   }
-  if (message.content === `$av`) {
+  if (message.content === `$avatar`) {
     const embed = new MessageEmbed()
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      return message.reply("**This command requires you to have the ``MANAGE MESSAGES`` permission to use it**")
       .setTitle('Your avatar')
       .setAuthor(`${message.author.username}`, message.author.avatarURL())
       .setImage(message.author.avatarURL())
@@ -186,7 +184,6 @@ bot.on("message", async message => {
       .setFooter(message.author.username)
       .setTimestamp()
     message.channel.send(embed);
-    }
   }
   if (cmd === `${prefix}poll`) {
     let pollChannel = message.mentions.channels.first();
@@ -255,7 +252,6 @@ bot.on("message", async message => {
       .setDescription('Deafult Rules [1-7] `Example $rules 1`')
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
   if (message.content === '$rules 1') {
@@ -264,7 +260,6 @@ bot.on("message", async message => {
       .setDescription('Dont say bad words, or things that can hurt people')
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
   if (message.content === '$rules 2') {
@@ -273,7 +268,6 @@ bot.on("message", async message => {
       .setDescription('You can spam on <#744200160032194611>')
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
   if (message.content === '$rules 3') {
@@ -282,7 +276,6 @@ bot.on("message", async message => {
       .setDescription('Ping staff only for purposes, and not for trolling')
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
   if (message.content === '$rules 4') {
@@ -291,7 +284,6 @@ bot.on("message", async message => {
       .setDescription('You are not allowed to advertise anything. If you do you will be punished')
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
   if (message.content === '$rules 5') {
@@ -300,7 +292,6 @@ bot.on("message", async message => {
       .setDescription('You shouldnt complain about this server. but you are allowed to give suggestions for this server')
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
   if (message.content === '$rules 6') {
@@ -309,7 +300,6 @@ bot.on("message", async message => {
       .setDescription('You may get muted if you do')
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
   if (message.content === '$rules 7') {
@@ -319,7 +309,6 @@ bot.on("message", async message => {
       https://discord.com/new/guidelines**`)
       .setColor("RED")
       .setTimestamp()
-      .setFooter(`ID: ${message.id}`)
     message.channel.send(embed);
   }
 });
@@ -333,10 +322,11 @@ bot.on('message', async message => {
     .addFields(
       { name: '🐸: Dank Memer', valuep: 'Dank Memer Roles. Can enter Dank memer Bot Command'},
       { name: '👨‍🌾: Growtopia', value: 'Growtopia Roles. Can enter Growtopia Bot Command'},
+      { name: '⛏️: Minecraft', value: 'Minecraft Roles. Can enter Minecraft Bot Command'},
     )
     .setColor("RED")
     let msg = await message.channel.send(embed);
-    await msg.react('🐸').then(msg.react('👨‍🌾')).then(msg.react('746767559449116795'))
+    await msg.react('🐸').then(msg.react('👨‍🌾')).then(msg.react('⛏️'))
   }
 });
 
@@ -347,7 +337,7 @@ bot.on('messageReactionAdd', async (reaction, user ) => {
   if (reaction.message.channel.id === '727331986712297523') {
     if (reaction.emoji.name === '🐸') await reaction.message.guild.members.cache.get(user.id).roles.add('727340886421405817')
     if (reaction.emoji.name === '👨‍🌾') await reaction.message.guild.members.cache.get(user.id).roles.add('741945946442694706')
-    if (reaction.emoji.id === '727331986712297523') await reaction.message.guild.members.cache.get(user.id).roles.add('741945946442694706')
+    if (reaction.emoji.id === '⛏️') await reaction.message.guild.members.cache.get(user.id).roles.add('741946662800326747')
   }
 });
 
@@ -358,7 +348,7 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
   if (reaction.message.channel.id === '727331986712297523') {
     if (reaction.emoji.name === '🐸') await reaction.message.guild.members.cache.get(user.id).roles.remove('727340886421405817')
     if (reaction.emoji.name === '👨‍🌾') await reaction.message.guild.members.cache.get(user.id).roles.remove('741945946442694706')
-    if (reaction.emoji.id === '727331986712297523') await reaction.message.guild.members.cache.get(user.id).roles.remove('741945946442694706')
+    if (reaction.emoji.id === '⛏️') await reaction.message.guild.members.cache.get(user.id).roles.add('741946662800326747')
   }
 });
 bot.login(process.env.token);

@@ -3,10 +3,13 @@ const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
 const { Client, MessageEmbed } = require('discord.js');
 const botsettings = require('./botsettings.json');
 const randomPuppy = require('random-puppy');
+const mongoose = require('mongoose');
 
 const prefix = "$"
 
 const bot = new Discord.Client({ disableEveryone: true });
+
+mongoose.conect('mongodb+srv://Subisu:Kukukukuning@subisu.ogeah.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true})
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)

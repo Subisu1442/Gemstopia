@@ -4,6 +4,12 @@ const { Client, MessageEmbed } = require('discord.js');
 const botsettings = require('./botsettings.json');
 const randomPuppy = require('random-puppy');
 const mongoose = require('mongoose');
+const fs = require('fs')
+
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
+const commandFiles = fs.reddirSync('./command').filter(file => file.endWith('.js'))
+
 
 const prefix = "$"
 
@@ -14,6 +20,27 @@ mongoose.connect('mongodb+srv://Subisu:Kukukukuning@subisu.ogeah.mongodb.net/Dat
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)
   bot.user.setActivity(`${prefix}help`, { type: "PLAYING" });
+})
+
+for (const file of commandFiles) {
+  const command = require(`./command/${file}`);
+  client.commands.set(command.name, command);
+}
+
+bot.on('message', message => {
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const command = argsshift().toLowerCase();
+
+  if (!client.commands.has(command)) return;
+  try {
+    client.command.get(command).execute(message, args);
+  }
+  catch (error) {
+    console.error(error);
+    message.reply('Something was an issue when executing command!')
+  }
 })
 
 bot.on('guildMemberAdd', member => {

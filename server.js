@@ -345,11 +345,11 @@ bot.on('message', async message => {
       .setTitle('Roles Age')
       .addFields(
         { name: '👧: ', value: '`Female`'},
-        { name: '👦: ', value: '`Male`'},
+        { name: '👨: ', value: '`Male`'},
       )
       .setColor("RED")
       let msg = await message.channel.send(embed);
-      await msg.react('👶').then(msg.react('👦')).then(msg.react('👴'))
+      await msg.react('👧').then(msg.react('👨'))
     }
 });
 

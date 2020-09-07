@@ -342,7 +342,7 @@ bot.on('message', async message => {
     }
     if (message.content.startsWith(`${prefix}re2ac34t23568roles23l`)) {
       const embed = new  MessageEmbed()
-      .setTitle('Roles Age')
+      .setTitle('Roles Gender')
       .addFields(
         { name: '👧: ', value: '`Female`'},
         { name: '👨: ', value: '`Male`'},

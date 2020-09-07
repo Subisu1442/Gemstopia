@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
 const { Client, MessageEmbed } = require('discord.js');
 const botsettings = require('./botsettings.json');
-const levels = require('./command/levels');
 
 const randomPuppy = require('random-puppy');
 const mongoose = require('mongoose');

@@ -38,7 +38,7 @@ bot.on('message', message => {
       client.command.get(command).execute(message, args);
   } catch (error) {
       console.error(error);
-      message.reply(`Code Error: ${err}`)
+      message.reply(`Something error when you run this command`)
   }
 
 });

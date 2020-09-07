@@ -8,7 +8,7 @@ const fs = require('fs')
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const commandFiles = fs.reddirSync('./command').filter(file => file.endWith('.js'))
+const commandFiles = fs.readdirSync('./command').filter(file => file.endWith('.js'))
 
 
 const prefix = "$"

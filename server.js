@@ -9,7 +9,7 @@ const prefix = "$"
 
 const bot = new Discord.Client({ disableEveryone: true });
 
-mongoose.conect('mongodb+srv://Subisu:Kukukukuning@subisu.ogeah.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://Subisu:Kukukukuning@subisu.ogeah.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true})
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const exampleEmbed = new Discord.MessageEmbed().setTitle('Some title');
 const { Client, MessageEmbed } = require('discord.js');
 const botsettings = require('./botsettings.json');
-const levels = require('./levels');
+const levels = require('./command/levels');
 
 const randomPuppy = require('random-puppy');
 const mongoose = require('mongoose');
@@ -130,7 +130,6 @@ bot.on("message", async message => {
     message.channel.send(embed)
   }
   if (message.content.startsWith(`${prefix}ping`)) {
-    (await message.channel.send(`Pinging...`)).then((msg) => {
       const pingembed = new Discord.MessageEmbed()
       .setDescription(
         `🏓Pong!\nLatency is **${Math.floor(
@@ -138,10 +137,7 @@ bot.on("message", async message => {
         )}ms \nAPI Latency is **${Math.round(client.ws.ping)}ms**`
       )
       .setColor("RED")
-      msg.edit(pingembed);
-      msg.edit("\u2000");
-    })
-  }
+    }
   if(cmd === `${prefix}purge`){
         if (message.deletable) {
             message.delete();

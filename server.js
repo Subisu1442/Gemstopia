@@ -4,7 +4,7 @@ const { Client, MessageEmbed } = require('discord.js');
 const botsettings = require('./botsettings.json');
 const randomPuppy = require('random-puppy');
 const mongoose = require('mongoose');
-const fs = require('fs')
+const fs = require('fs');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -35,13 +35,13 @@ bot.on('message', message => {
 
   if (!client.commands.has(command)) return;
   try {
-    client.command.get(command).execute(message, args);
+      client.command.get(command).execute(message, args);
+  } catch (error) {
+      console.error(error);
+      message.reply(`Code Error: ${err}`)
   }
-  catch (error) {
-    console.error(error);
-    message.reply('Something was an issue when executing command!')
-  }
-})
+
+});
 
 bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === 'english-only');

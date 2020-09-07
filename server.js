@@ -344,8 +344,8 @@ bot.on('message', async message => {
       const embed = new  MessageEmbed()
       .setTitle('Roles Age')
       .addFields(
-        { name: '👧: ', value: '`Male`'},
-        { name: '👦: ', value: '``Female'},
+        { name: '👧: ', value: '`Female`'},
+        { name: '👦: ', value: '`Male`'},
       )
       .setColor("RED")
       let msg = await message.channel.send(embed);

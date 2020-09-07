@@ -320,7 +320,7 @@ bot.on('message', async message => {
     const embed = new  MessageEmbed()
     .setTitle('Roles Games')
     .addFields(
-      { name: '🐸: Dank Memer', valuep: 'Dank Memer Roles. Can enter Dank memer Bot Command'},
+      { name: '🐸: Dank Memer', value: 'Dank Memer Roles. Can enter Dank memer Bot Command'},
       { name: '👨‍🌾: Growtopia', value: 'Growtopia Roles. Can enter Growtopia Bot Command'},
       { name: '⛏️: Minecraft', value: 'Minecraft Roles. Can enter Minecraft Bot Command'},
     )

@@ -48,7 +48,7 @@ bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.cache.find(ch => ch.name === 'english-only');
   if (!channel) return;
   channel.send(`<:AmongWelcome:751835725443497994>**${member} Welcome to ${member.guild.name}. 
-  Make sure to check out <#727338502324486234> and follow the rules**`);
+  Make sure to check out <#752552305366401084> and follow the rules**`);
 });
 
 bot.on('guildMemberRemove', member => {
@@ -316,28 +316,57 @@ bot.on("message", async message => {
 
 bot.on('message', async message => {
   if(message.author.bot || message.channel.type === "dm") return;
-  if (message.content.startsWith(`${prefix}reactionroles23l`)) {
+  if (message.content.startsWith(`${prefix}reactionwdsfa3roles23l`)) {
     const embed = new  MessageEmbed()
     .setTitle('Roles Games')
     .addFields(
-      { name: '🐸: Dank Memer', value: 'Dank Memer Roles. Can enter Dank memer Bot Command'},
-      { name: '👨‍🌾: Growtopia', value: 'Growtopia Roles. Can enter Growtopia Bot Command'},
-      { name: '⛏️: Minecraft', value: 'Minecraft Roles. Can enter Minecraft Bot Command'},
+      { name: '🐸: Dank Memer', value: '`Dank Memer Roles. Can enter Dank memer Bot Command`'},
+      { name: '👨‍🌾: Growtopia', value: '`Growtopia Roles. Can enter Growtopia Bot Command`'},
+      { name: '⛏️: Minecraft', value: '`Minecraft Roles. Can enter Minecraft Bot Command`'},
     )
     .setColor("RED")
     let msg = await message.channel.send(embed);
     await msg.react('🐸').then(msg.react('👨‍🌾')).then(msg.react('⛏️'))
   }
+    if (message.content.startsWith(`${prefix}re2ac34ti4donroles23l`)) {
+      const embed = new  MessageEmbed()
+      .setTitle('Roles Age')
+      .addFields(
+        { name: '👶: ', value: '`13-15`'},
+        { name: '👦: ', value: '`16-17`'},
+        { name: '👴: ', value: '`18+`'},
+      )
+      .setColor("RED")
+      let msg = await message.channel.send(embed);
+      await msg.react('👶').then(msg.react('👦')).then(msg.react('👴'))
+    }
+    if (message.content.startsWith(`${prefix}re2ac34t23568roles23l`)) {
+      const embed = new  MessageEmbed()
+      .setTitle('Roles Age')
+      .addFields(
+        { name: '👶: ', value: '`13-15`'},
+        { name: '👦: ', value: '`16-17`'},
+        { name: '👴: ', value: '`18+`'},
+      )
+      .setColor("RED")
+      let msg = await message.channel.send(embed);
+      await msg.react('👶').then(msg.react('👦')).then(msg.react('👴'))
+    }
 });
 
 bot.on('messageReactionAdd', async (reaction, user ) => {
   if (reaction.message.partial) await reaction.message.fetch()
   if (reaction.partial) await reaction.fetch()
   if (user.bot)return
-  if (reaction.message.channel.id === '727331986712297523') {
+  if (reaction.message.channel.id === '752552305366401084') {
     if (reaction.emoji.name === '🐸') await reaction.message.guild.members.cache.get(user.id).roles.add('727340886421405817')
     if (reaction.emoji.name === '👨‍🌾') await reaction.message.guild.members.cache.get(user.id).roles.add('741945946442694706')
     if (reaction.emoji.id === '⛏️') await reaction.message.guild.members.cache.get(user.id).roles.add('741946662800326747')
+    if (reaction.emoji.name === '👶') await reaction.message.guild.members.cache.get(user.id).roles.add('744036349157572718')
+    if (reaction.emoji.name === '👦') await reaction.message.guild.members.cache.get(user.id).roles.add('744036453897601035')
+    if (reaction.emoji.id === '👴') await reaction.message.guild.members.cache.get(user.id).roles.add('744036520113078352')
+    if (reaction.emoji.name === '👧') await reaction.message.guild.members.cache.get(user.id).roles.add('744033796835377172')
+    if (reaction.emoji.id === '👦') await reaction.message.guild.members.cache.get(user.id).roles.add('744033864078327888')
   }
 });
 
@@ -345,10 +374,15 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
   if (reaction.message.partial) await reaction.message.fetch()
   if (reaction.partial) await reaction.fetch()
   if (user.bot)return
-  if (reaction.message.channel.id === '727331986712297523') {
+  if (reaction.message.channel.id === '752552305366401084') {
     if (reaction.emoji.name === '🐸') await reaction.message.guild.members.cache.get(user.id).roles.remove('727340886421405817')
     if (reaction.emoji.name === '👨‍🌾') await reaction.message.guild.members.cache.get(user.id).roles.remove('741945946442694706')
-    if (reaction.emoji.id === '⛏️') await reaction.message.guild.members.cache.get(user.id).roles.add('741946662800326747')
+    if (reaction.emoji.id === '⛏️') await reaction.message.guild.members.cache.get(user.id).roles.remove('741946662800326747')
+    if (reaction.emoji.name === '👶') await reaction.message.guild.members.cache.get(user.id).roles.remove('744036349157572718')
+    if (reaction.emoji.name === '👦') await reaction.message.guild.members.cache.get(user.id).roles.remove('744036453897601035')
+    if (reaction.emoji.id === '👴') await reaction.message.guild.members.cache.get(user.id).roles.remove('744036520113078352')
+    if (reaction.emoji.name === '👧') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033796835377172')
+    if (reaction.emoji.id === '👦') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033864078327888')
   }
 });
 bot.login(process.env.token);

@@ -1,11 +1,11 @@
-const moongose = require('./mongoose')
+const mongose = require('./mongoose')
 
 const reqString = {
     type: String,
     require: true,
 }
 
-const profileSchema = moongose.Schema({
+const profileSchema = mongose.Schema({
     guildId: reqString,
     userId: reqString,
     coins: {

@@ -11,6 +11,7 @@
   "dependencies": {
     "discord.js": "^12.3.1",
     "fs": "0.0.1-security",
+    "mongo": "^0.1.0",
     "mongoose": "^5.10.3",
     "random-puppy": "^1.1.0"
   }

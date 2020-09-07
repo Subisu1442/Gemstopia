@@ -4,6 +4,8 @@ const profileSchema = require('./schemas/profile-schemas')
 module.exports = (client) => {
     client.on('message', message => {
         const { guild, member } = message
+
+        addXP(guild.id, member.id, 23)
     })
 }
 

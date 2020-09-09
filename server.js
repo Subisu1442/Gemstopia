@@ -365,7 +365,7 @@ bot.on('messageReactionAdd', async (reaction, user ) => {
     if (reaction.emoji.name === '👦') await reaction.message.guild.members.cache.get(user.id).roles.add('744036453897601035')
     if (reaction.emoji.id === '👴') await reaction.message.guild.members.cache.get(user.id).roles.add('744036520113078352')
     if (reaction.emoji.name === '👧') await reaction.message.guild.members.cache.get(user.id).roles.add('744033864078327888')
-    if (reaction.emoji.id === '👦') await reaction.message.guild.members.cache.get(user.id).roles.add('744033796835377172')
+    if (reaction.emoji.id === '👨') await reaction.message.guild.members.cache.get(user.id).roles.add('744033796835377172')
   }
 });
 
@@ -381,7 +381,7 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
     if (reaction.emoji.name === '👦') await reaction.message.guild.members.cache.get(user.id).roles.remove('744036453897601035')
     if (reaction.emoji.id === '👴') await reaction.message.guild.members.cache.get(user.id).roles.remove('744036520113078352')
     if (reaction.emoji.name === '👧') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033864078327888')
-    if (reaction.emoji.id === '👦') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033796835377172')
+    if (reaction.emoji.id === '👨') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033796835377172')
   }
 });
 bot.login(process.env.token);

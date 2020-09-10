@@ -49,6 +49,13 @@ bot.on('guildMemberAdd', member => {
   if (!channel) return;
   channel.send(`<:AmongWelcome:751835725443497994>**${member} Welcome to ${member.guild.name}. 
   Make sure to check out <#752552305366401084> and follow the rules**`);
+  
+    member.send({embed: { color: "BLACK", description: `**Welcome to** \`${member.guild.name}\`,
+  Thanks for joining Dank's World. We know you probably won't read this, or won't talk in the server at all, so welcome!` 
+  , addFields(
+  name: 'Test', value: 'P'
+  )
+  }})
 });
 
 bot.on('guildMemberRemove', member => {

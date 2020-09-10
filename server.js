@@ -53,7 +53,7 @@ bot.on('guildMemberAdd', member => {
     member.send({embed: { color: "BLACK", description: `**Welcome to** \`${member.guild.name}\`,
   Thanks for joining Dank's World. We know you probably won't read this, or won't talk in the server at all, so welcome!` 
   , addFields(
-  name: 'Test', value: 'P'
+  { name: 'fasf', value: 'ffadf' },
   )
   }})
 });

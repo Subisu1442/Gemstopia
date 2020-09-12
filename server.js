@@ -45,7 +45,7 @@ bot.on('message', message => {
 });
 
 bot.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.cache.find(ch => ch.name === 'english-only');
+  const channel = member.guild.channels.cache.find(ch => ch.name === '💬┇english-only');
   if (!channel) return;
   channel.send(`<:AmongWelcome:751835725443497994>**${member} Welcome to ${member.guild.name}. 
   Make sure to check out <#752552305366401084> and follow the rules**`);

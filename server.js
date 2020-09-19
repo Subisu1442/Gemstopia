@@ -385,4 +385,4 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
     if (reaction.emoji.name === '👨') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033796835377172')
   }
 });
-bot.login(token);
+bot.login(process.env.token);

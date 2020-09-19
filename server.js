@@ -11,7 +11,6 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./command').filter(file => file.endsWith('.js'))
 
-
 const prefix = "$"
 
 const bot = new Discord.Client({ disableEveryone: true });
@@ -386,4 +385,4 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
     if (reaction.emoji.name === '👨') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033796835377172')
   }
 });
-bot.login(process.env.token);
+bot.login(token);

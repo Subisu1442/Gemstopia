@@ -396,7 +396,7 @@ bot.on('message', async message => {
       )
       .setColor("RED")
       let msg = await message.channel.send(embed);
-      await msg.react('👶')
+      await msg.react('761489795905355777')
     }
 });
 

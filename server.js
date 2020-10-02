@@ -388,7 +388,6 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
 
 bot.on('message', async message => {
   if(message.author.bot || message.channel.type === "dm") return;
-  }
     if (message.content.startsWith(`${prefix}re2awfoajdoawsdonroles23l`)) {
       const embed = new  MessageEmbed()
       .setTitle('Among Us')

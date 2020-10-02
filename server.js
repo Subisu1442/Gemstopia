@@ -405,7 +405,7 @@ bot.on('messageReactionAdd', async (reaction, user ) => {
   if (reaction.partial) await reaction.fetch()
   if (user.bot)return
   if (reaction.message.channel.id === '727331986712297523') {
-    if (reaction.emoji.id === '753673424441835561') await reaction.message.guild.members.cache.get(user.id).roles.add('761490103759405056')
+    if (reaction.emoji.id === '753673424441835561') await reaction.message.guild.members.cache.get(user.id).roles.add('761465261554925579')
   }
 });
 
@@ -414,7 +414,7 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
   if (reaction.partial) await reaction.fetch()
   if (user.bot)return
   if (reaction.message.channel.id === '727331986712297523') {
-    if (reaction.emoji.id === '753673424441835561') await reaction.message.guild.members.cache.get(user.id).roles.remove('761490103759405056')
+    if (reaction.emoji.id === '753673424441835561') await reaction.message.guild.members.cache.get(user.id).roles.remove('761465261554925579')
   }
 });
 

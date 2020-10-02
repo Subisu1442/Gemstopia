@@ -385,4 +385,39 @@ bot.on('messageReactionRemove', async (reaction, user ) => {
     if (reaction.emoji.name === '👨') await reaction.message.guild.members.cache.get(user.id).roles.remove('744033796835377172')
   }
 });
+
+bot.on('message', async message => {
+  if(message.author.bot || message.channel.type === "dm") return;
+  }
+    if (message.content.startsWith(`${prefix}re2awfoajdoawsdonroles23l`)) {
+      const embed = new  MessageEmbed()
+      .setTitle('Among Us')
+      .addFields(
+        { name: 'Among Us ', value: 'Event Ping'},
+      )
+      .setColor("RED")
+      let msg = await message.channel.send(embed);
+      await msg.react('👶')
+    }
+});
+
+bot.on('messageReactionAdd', async (reaction, user ) => {
+  if (reaction.message.partial) await reaction.message.fetch()
+  if (reaction.partial) await reaction.fetch()
+  if (user.bot)return
+  if (reaction.message.channel.id === '727331986712297523') {
+    if (reaction.emoji.id === '761489795905355777') await reaction.message.guild.members.cache.get(user.id).roles.add('761490103759405056')
+  }
+});
+
+bot.on('messageReactionRemove', async (reaction, user ) => {
+  if (reaction.message.partial) await reaction.message.fetch()
+  if (reaction.partial) await reaction.fetch()
+  if (user.bot)return
+  if (reaction.message.channel.id === '727331986712297523') {
+    if (reaction.emoji.id === '761489795905355777') await reaction.message.guild.members.cache.get(user.id).roles.remove('761490103759405056')
+  }
+});
+
+
 bot.login(process.env.token);
